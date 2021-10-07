@@ -42,9 +42,6 @@ public class ControllerSelf : MonoBehaviour
     public float inH, inV, nitroBoost;
     bool handBrake;
 
-    private enum ControlMode { SideControl, FullControl };
-    private ControlMode currentControlMode = ControlMode.SideControl;
-
     void Update()
     {
 
