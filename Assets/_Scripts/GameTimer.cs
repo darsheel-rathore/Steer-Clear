@@ -16,11 +16,17 @@ public class GameTimer : MonoBehaviour
     private void OnEnable()
     {
         FinishLine.raceFinished += TimerStopped;
+        FallManager.playerFellFromTrack += TimerStopped;
+        InGameUIEventManager.resetCheckPoint += TimerResumed;
+        InGameUIEventManager.restartLevel += ResetTimer;
     }
 
     private void OnDisable()
     {
-        FinishLine.raceFinished -= TimerStopped;   
+        FinishLine.raceFinished -= TimerStopped;
+        FallManager.playerFellFromTrack -= TimerStopped;
+        InGameUIEventManager.resetCheckPoint -= TimerResumed;
+        InGameUIEventManager.restartLevel -= ResetTimer;
     }
 
     // Start is called before the first frame update
@@ -58,5 +64,18 @@ public class GameTimer : MonoBehaviour
     private void TimerStopped()
     {
         isTimerRunning = false;
+    }
+
+    private void TimerResumed()
+    {
+        isTimerRunning = true;
+    }
+
+    private void ResetTimer()
+    {
+        isTimerRunning = true;
+        startTime = 0f;
+        minutes = 0f;
+        seconds = 0f;
     }
 }
