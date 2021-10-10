@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameTimer : MonoBehaviour
 {
 
-    public Text timerText;
+    public TextMeshProUGUI timerText;
     float startTime = 0f;
     string timerValue;
     float seconds = 0, minutes = 0;
