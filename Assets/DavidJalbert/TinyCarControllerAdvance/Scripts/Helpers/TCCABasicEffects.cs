@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 namespace DavidJalbert.TinyCarControllerAdvance
 {
     public class TCCABasicEffects : MonoBehaviour
@@ -36,7 +35,7 @@ namespace DavidJalbert.TinyCarControllerAdvance
         private GameObject objectRoot;
         private TrailRenderer[] skidMarkObjects;
         private ParticleSystem[] smokeObjects;
-        
+
         private float audioScreechingVolume = 0;
         private float audioScreechingInitialVolume = 0;
         private float audioEngineDelta = 0;
@@ -45,7 +44,7 @@ namespace DavidJalbert.TinyCarControllerAdvance
         {
             objectRoot = new GameObject("skid marks");
             objectRoot.transform.SetParent(transform);
-            
+
             if (skidMarkPrefab != null)
             {
                 skidMarkObjects = new TrailRenderer[getWheels().Length];

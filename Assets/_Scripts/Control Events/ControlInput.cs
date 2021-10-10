@@ -5,23 +5,23 @@ public class ControlInput : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 {
     public enum ControlSelection
     {
-        forward, backward, left, right
+        left, right, brakes, nitro //, forward, backward,
     }
 
     public ControlSelection currentSelection = ControlSelection.left;
 
-    public delegate void OnUpArrowPressed();
-    public static OnUpArrowPressed upArrowPressed;
+    //public delegate void OnUpArrowPressed();
+    //public static OnUpArrowPressed upArrowPressed;
 
-    public delegate void OnUpArrowReleased();
-    public static OnUpArrowReleased upArrowReleased;
+    //public delegate void OnUpArrowReleased();
+    //public static OnUpArrowReleased upArrowReleased;
 
 
-    public delegate void OnDownButtonPressed();
-    public static OnDownButtonPressed onDownButtonPressed;
+    //public delegate void OnDownButtonPressed();
+    //public static OnDownButtonPressed onDownButtonPressed;
 
-    public delegate void OnDownButtonReleased();
-    public static OnDownButtonReleased onDownButtonReleased;
+    //public delegate void OnDownButtonReleased();
+    //public static OnDownButtonReleased onDownButtonReleased;
 
 
     public delegate void OnLeftArrowPressed();
@@ -37,6 +37,17 @@ public class ControlInput : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     public delegate void OnRightButtonReleased();
     public static OnRightButtonReleased onRightButtonReleased;
 
+    public delegate void OnBrakesPressed();
+    public static OnBrakesPressed onBrakesPressed;
+
+    public delegate void OnBrakeReleased();
+    public static OnBrakeReleased onBrakeReleased;
+
+    public delegate void OnNitroPressed();
+    public static OnNitroPressed onNitroPressed;
+
+    public delegate void OnNitroReleased();
+    public static OnNitroReleased onNitroReleased;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -54,14 +65,24 @@ public class ControlInput : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
                     onRightButtonPressed();
                 break;
 
-            case ControlSelection.forward:
-                if (upArrowPressed != null)
-                    upArrowPressed();
+            //case ControlSelection.forward:
+            //    if (upArrowPressed != null)
+            //        upArrowPressed();
+            //    break;
+
+            //case ControlSelection.backward:
+            //    if (onDownButtonPressed != null)
+            //        onDownButtonPressed();
+            //    break;
+
+            case ControlSelection.brakes:
+                if (onBrakesPressed != null)
+                    onBrakesPressed();
                 break;
 
-            case ControlSelection.backward:
-                if (onDownButtonPressed != null)
-                    onDownButtonPressed();
+            case ControlSelection.nitro:
+                if (onNitroPressed != null)
+                    onNitroPressed();
                 break;
         }
     }
@@ -80,15 +101,26 @@ public class ControlInput : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
                     onRightButtonReleased();
                 break;
 
-            case ControlSelection.forward:
-                if (upArrowReleased != null)
-                    upArrowReleased();
+            //case ControlSelection.forward:
+            //    if (upArrowReleased != null)
+            //        upArrowReleased();
+            //    break;
+
+            //case ControlSelection.backward:
+            //    if (onDownButtonReleased != null)
+            //        onDownButtonReleased();
+            //    break;
+
+            case ControlSelection.brakes:
+                if (onBrakeReleased != null)
+                    onBrakeReleased();
                 break;
 
-            case ControlSelection.backward:
-                if (onDownButtonReleased != null)
-                    onDownButtonReleased();
+            case ControlSelection.nitro:
+                if (onNitroReleased != null)
+                    onNitroReleased();
                 break;
+
         }
     }
 

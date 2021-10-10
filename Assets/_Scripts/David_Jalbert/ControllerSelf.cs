@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class ControllerSelf : MonoBehaviour
 {
-
-
     public enum InputType
     {
         None, Axis, RawAxis, Key, Button
