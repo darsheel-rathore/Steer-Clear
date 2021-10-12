@@ -35,6 +35,9 @@ public class SpawnAndPositionManager : MonoBehaviour
         // get spawn position and rotation
         GetLastRotationAndPosition();
 
+        if (playerInstance != null)
+            Destroy(playerInstance.gameObject);
+
         // instantiate player and provide reference to the virtual camera
         playerInstance = Instantiate(playerVehicleChassis, lastPosition, lastRotation);
         VCHandler.instace.SetVCFollowTarget(playerInstance.GetComponentInChildren<TCCABody>().transform);
@@ -47,8 +50,7 @@ public class SpawnAndPositionManager : MonoBehaviour
 
     private void RestartLevel()
     {
-        // reload scene
-        SceneManager.LoadScene(0);
+        
     }
 
     private void GetLastRotationAndPosition()

@@ -361,6 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1748715712238242161}
   - component: {fileID: 1748715712238242160}
+  - component: {fileID: 820217256891132390}
   m_Layer: 0
   m_Name: Mustang
   m_TagString: Untagged
@@ -407,6 +408,20 @@ MonoBehaviour:
   applyHandbrake: 0
   boostMaxSpeedMultiplier: 1.5
   boostAccelerationMultiplier: 2
+--- !u!114 &820217256891132390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748715712238242174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cffa73b30b482f409ac41bfe8aeed5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  engineSource: {fileID: 3933094975368797047}
+  effectsSource: {fileID: 9215687796636891753}
 --- !u!1 &1748715712257531284
 GameObject:
   m_ObjectHideFlags: 0

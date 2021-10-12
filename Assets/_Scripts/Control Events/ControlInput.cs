@@ -83,6 +83,10 @@ public class ControlInput : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
             case ControlSelection.nitro:
                 if (onNitroPressed != null)
                     onNitroPressed();
+
+                // play the particle system
+                GetComponentInChildren<ParticleSystem>().Play();
+
                 break;
         }
     }
@@ -119,6 +123,10 @@ public class ControlInput : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
             case ControlSelection.nitro:
                 if (onNitroReleased != null)
                     onNitroReleased();
+
+                // stop the particle system
+                GetComponentInChildren<ParticleSystem>().Stop();
+
                 break;
 
         }

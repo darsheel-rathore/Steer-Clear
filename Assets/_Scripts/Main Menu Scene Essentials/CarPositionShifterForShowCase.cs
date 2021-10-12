@@ -25,23 +25,14 @@ public class CarPositionShifterForShowCase : MonoBehaviour
         CarShowCaseButtons.rightButtonReleased -= ShiftRight;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        //if (startShifting)
-        //{
-        //    transform.position = Vector3.Slerp(transform.position, targetPosition, shiftSpeed * Time.deltaTime);
-
-        //    if (Vector3.Distance(transform.position, targetPosition) <= 0.1f)
-        //    {
-        //        transform.position = targetPosition;
-        //        startShifting = false;
-        //    }
-        //}
+        readyToShift = true;
     }
 
     private void ShiftLeft()
     {
+
         if (!readyToShift) return;
 
         positionDifference = -1f * leftSidePositionDifference;
