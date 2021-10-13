@@ -53,6 +53,12 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void LoadCustomLevel(int levelIndex)
+    {
+        // load level according to the button
+        //SceneManager.LoadScene(levelIndex);
+    }
+
     #endregion
 
 

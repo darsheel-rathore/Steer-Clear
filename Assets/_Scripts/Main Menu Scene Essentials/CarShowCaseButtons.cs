@@ -6,8 +6,7 @@ using UnityEngine.EventSystems;
 
 public class CarShowCaseButtons : MonoBehaviour, IPointerUpHandler
 {
-    // patna kashi jan shatabdi
-
+    
     public enum SelectionDirection {  Left, Right };
     public SelectionDirection currentSelection;
 

@@ -29,21 +29,24 @@ public class CarCollection : MonoBehaviour
 
     private void OnEnable()
     {
+        if (CarCollection.instance == null)
+            CarCollection.instance = this;
+
         CarShowCaseButtons.leftButtonReleased += CarChangeLeftButtonPressed;
         CarShowCaseButtons.rightButtonReleased += CarChangeRightButtonPressed;
+        GameManager.loadCarPositionSaveData += LoadSelectedCarSavedData;
     }
 
     private void OnDisable()
     {
         CarShowCaseButtons.leftButtonReleased -= CarChangeLeftButtonPressed;
         CarShowCaseButtons.rightButtonReleased -= CarChangeRightButtonPressed;
+        GameManager.loadCarPositionSaveData -= LoadSelectedCarSavedData;
     }
 
     private void Awake()
     {
-        // creating static instance
-        if (CarCollection.instance == null)
-            CarCollection.instance = this;
+        PoplulateCarlist();
 
         // caching first car
         car = GetComponentInChildren<CarPositionShifterForShowCase>();
@@ -51,7 +54,6 @@ public class CarCollection : MonoBehaviour
 
     void Start()
     {
-        PoplulateCarlist();
     }
 
     #endregion
@@ -83,15 +85,25 @@ public class CarCollection : MonoBehaviour
     private void CarChangeRightButtonPressed()
     {
         if (car.GetReadyToShiftStatus())
+        { 
             currentlySelectedCar += 1;
+            GameManager.instance.SaveSelectedCar(currentlySelectedCar);
+        }
     }
 
     private void CarChangeLeftButtonPressed()
     {
         if (car.GetReadyToShiftStatus())
+        { 
             currentlySelectedCar -= 1;
+            GameManager.instance.SaveSelectedCar(currentlySelectedCar);
+        }
     }
 
+    private void LoadSelectedCarSavedData()
+    {
+        currentlySelectedCar = GameManager.instance.GetSelectedCarSaveData();
+    }
 
     #endregion
 

@@ -20,12 +20,14 @@ public class MainMenuCanvasManager : MonoBehaviour
     {
         CarShowCaseButtons.leftButtonReleased += CheckForCarShowcaseChange;
         CarShowCaseButtons.rightButtonReleased += CheckForCarShowcaseChange;
+        GameManager.loadCarPositionSaveData += LoadSelectedSaveCarData;
     }
 
     private void OnDisable()
     {
         CarShowCaseButtons.leftButtonReleased -= CheckForCarShowcaseChange;
         CarShowCaseButtons.rightButtonReleased -= CheckForCarShowcaseChange;
+        GameManager.loadCarPositionSaveData -= LoadSelectedSaveCarData;
     }
 
 
@@ -62,6 +64,7 @@ public class MainMenuCanvasManager : MonoBehaviour
         bmgButtonSoundImage.sprite = volume <= 0f ? soundOn : soundOff;
     }
 
+
     // for btn sound 
     public void _OnGameSoundToggle()
     {
@@ -71,11 +74,13 @@ public class MainMenuCanvasManager : MonoBehaviour
         sfxButtonSoundImage.sprite = volume <= 0f ? soundOn : soundOff;
     }
 
+
     // quit game
     public void _OnConfirmGameQuit()
     {
         Application.Quit();
     }
+
 
     // for firing ad event
     public void _OnConfirmRewardAd()
@@ -84,10 +89,22 @@ public class MainMenuCanvasManager : MonoBehaviour
         Debug.Log("Add logic");
     }
 
+
     public void _PlayButtonPressed()
     {
         loadingPanel.SetActive(true);
         SceneManagement.instance.MainMenuPlayButton();
+    }
+
+    #endregion
+
+
+
+    #region Event Listeners
+
+    private void LoadSelectedSaveCarData()
+    {
+        CheckForCarShowcaseChange();
     }
 
     #endregion
