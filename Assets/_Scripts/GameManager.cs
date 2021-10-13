@@ -15,15 +15,21 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     // constants for saving identifiers
-    private const string GOLDAMOUNTIDENT = "GoldAmount";
-    private const string SELECTEDCAR = "SelectedCar";
+    public const string GOLDAMOUNTIDENT = "GoldAmount";
+    public const string SELECTEDCAR = "SelectedCar";
+    public const string LEVELTIMINGDISPLAY = "LevelTimings";
+    public const string LEVELTOTALTIMINGSAVE = "LevelTotalTimings";
 
     // event delegates
     public delegate void RePositionCarAsPerSave();
     public static RePositionCarAsPerSave loadCarPositionSaveData;
 
     // car position saved data
-    private int selectedCarIndex = 0;
+    private int selectedCarIndex;
+
+    // level time management data
+    private Dictionary<int, string> levelTimings;
+    private Dictionary<int, float> totalTimingsForLevels;
 
     #endregion
 
@@ -64,7 +70,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
     }
 
     #endregion
@@ -88,8 +93,18 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No Car Selection Data available.");
-            return;
+            SaveSelectedCar(0);
+        }
+    }
+
+
+    private void CheckForLevelStatus()
+    {
+        bool isLevelDataSaved = SaveGame.Exists(LEVELTIMINGDISPLAY);
+
+        if (!isLevelDataSaved)
+        {
+            SaveLevelDataForFirstTime();
         }
     }
 
@@ -109,6 +124,7 @@ public class GameManager : MonoBehaviour
         if (buildIndex == 0)
         {
             CheckForSelectedCarSave();
+            CheckForLevelStatus();
         }
     }
 
@@ -131,12 +147,25 @@ public class GameManager : MonoBehaviour
     // ==================================================
 
 
-    #region SAVING METHODS
+    #region SAVING AND LOADING METHODS
 
     public void SaveSelectedCar(int currentlySelectedCar)
     {
         selectedCarIndex = currentlySelectedCar;
         SaveGame.Save<int>(SELECTEDCAR, selectedCarIndex);
+    }
+
+    private void SaveLevelDataForFirstTime()
+    {
+        // initializing level time management variables
+        levelTimings = new Dictionary<int, string>();
+        totalTimingsForLevels = new Dictionary<int, float>();
+
+        levelTimings.Add(0, "--");
+        totalTimingsForLevels.Add(0, 0f);
+
+        SaveGame.Save<Dictionary<int, string>>(LEVELTIMINGDISPLAY, levelTimings);
+        SaveGame.Save<Dictionary<int, float>>(LEVELTOTALTIMINGSAVE, totalTimingsForLevels);
     }
 
     #endregion

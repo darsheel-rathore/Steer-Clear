@@ -1,3 +1,4 @@
+using BayatGames.SaveGameFree;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -19,6 +20,9 @@ public class LevelSelectionPanel : MonoBehaviour
 
     private List<GameObject> instantiatedLevelPrefabs;
 
+    private Dictionary<int, string> levelTiming;
+    private Dictionary<int, float> totalLevelTimings;
+
     //[Header("Method 2")]
     //[SerializeField] private GameObject lockedLevelPrefab;
     //[SerializeField] private GameObject unlockedLevelPrefab;
@@ -28,8 +32,17 @@ public class LevelSelectionPanel : MonoBehaviour
 
     private void Start()
     {
+        // initializing dictionaries
+        levelTiming = new Dictionary<int, string>();
+        totalLevelTimings = new Dictionary<int, float>();
+
+        levelTiming = SaveGame.Load<Dictionary<int, string>>("LevelTimings");
+        totalLevelTimings = SaveGame.Load<Dictionary<int, float>>("LevelTotalTimings");
+
         // initializing prefab holder list
         InstantiatePrefabs();
+
+        
     }
 
     private void InstantiatePrefabs()
@@ -38,7 +51,9 @@ public class LevelSelectionPanel : MonoBehaviour
 
         for (int i = 0; i < countOfLevelsToBeGenerated; i++)
         {
+            // instantiate and add to the list
             instantiatedLevelPrefabs.Add(Instantiate(prefabToBeInstantiate, instantiationArea) as GameObject);
+            // attach audio source and level id to the buttons
             instantiatedLevelPrefabs[i].GetComponent<Assets.Plugins.ButtonSoundsEditor.ButtonClickSound>().AudioSource = buttonAudioSource;
             instantiatedLevelPrefabs[i].GetComponent<LevelButtonIdCarrier>().SetLevelID(i+1);
 
@@ -50,21 +65,24 @@ public class LevelSelectionPanel : MonoBehaviour
                 TextMeshProUGUI[] texts = new TextMeshProUGUI[2];
                 texts = instantiatedLevelPrefabs[i].GetComponentsInChildren<TextMeshProUGUI>();
                 texts[0].text = "Lv. " + (i + 1);
-                texts[1].text = "0:00";
+                texts[1].text = levelTiming[i];
 
                 // grabbing all the image components of the prefab and disabling the last one 
                 // as it is the one with the locked icon on it
                 int componentCountWithImage = 0;
 
+                // counting the total number of image components as children
                 foreach (Transform g in instantiatedLevelPrefabs[i].GetComponentsInChildren<Transform>())
                 {
                     if (g.GetComponent<Image>() != null)
                         componentCountWithImage += 1;
                 }
 
+                // create an image array and assign the childs with image components
                 Image[] img = new Image[componentCountWithImage];
                 img = instantiatedLevelPrefabs[i].GetComponentsInChildren<Image>();
 
+                // cycle through all the image components and enable the last one
                 for (int x = 0; x < img.Length; x++)
                 {
                     if (x == (img.Length - 1))
@@ -74,22 +92,27 @@ public class LevelSelectionPanel : MonoBehaviour
             // incase where the instantiated level is locked
             else
             {
+                // array for storing locked childs
                 GameObject[] prefabChilds = new GameObject[instantiatedLevelPrefabs[i].GetComponentsInChildren<Transform>().Length];
 
+                // instantiate and assign the array childs
                 for (int y = 0; y < prefabChilds.Length; y++)
                 {
                     prefabChilds[y] = instantiatedLevelPrefabs[i].GetComponentsInChildren<Transform>()[y].gameObject;
                 }
 
+                // cycle through all the locked array childs for first disable all the image
+                // then enable the last and first one
                 for (int x = 0; x < prefabChilds.Length; x++)
                 {
-                    // for disabling all the gameobjects
+                    // for disabling all the image components but the first
                     prefabChilds[x].SetActive(false);
                     if (x == 0)
                     {
                         prefabChilds[x].SetActive(true);
                         prefabChilds[x].GetComponent<Image>().enabled = false;
                     }
+                    // enable the last one
                     else if (x == (prefabChilds.Length - 1))
                     {
                         prefabChilds[x].SetActive(true);
@@ -102,6 +125,8 @@ public class LevelSelectionPanel : MonoBehaviour
 
 
 
+
+    // =================================================
 
     #region Unused Code
     //private void InstantiatePrefabAnotherMethod()
