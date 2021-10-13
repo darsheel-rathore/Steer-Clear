@@ -56,7 +56,7 @@ public class SceneManagement : MonoBehaviour
     public void LoadCustomLevel(int levelIndex)
     {
         // load level according to the button
-        //SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(levelIndex);
     }
 
     #endregion
@@ -64,7 +64,7 @@ public class SceneManagement : MonoBehaviour
 
     #region Private Methods
 
-    private int GetCurrentSceneIndex()
+    public int GetCurrentSceneIndex()
     {
         return SceneManager.GetActiveScene().buildIndex;
     }

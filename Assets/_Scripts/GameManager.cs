@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public const string SELECTEDCAR = "SelectedCar";
     public const string LEVELTIMINGDISPLAY = "LevelTimings";
     public const string LEVELTOTALTIMINGSAVE = "LevelTotalTimings";
+    public const string UNLOCKEDLEVEL = "UnlockedLevelCount";
 
     // event delegates
     public delegate void RePositionCarAsPerSave();
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     // car position saved data
     private int selectedCarIndex;
+    private int unlockedLevels;
 
     // level time management data
     private Dictionary<int, string> levelTimings;
@@ -43,13 +45,14 @@ public class GameManager : MonoBehaviour
     {
        // SaveGame.Clear();
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
+        WinningStage.raceFinished += LevelFinished;
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneFinishedLoading;
+        WinningStage.raceFinished -= LevelFinished;
     }
-
 
     private void Awake()
     {
@@ -66,10 +69,6 @@ public class GameManager : MonoBehaviour
             }
         }
         DontDestroyOnLoad(this.gameObject);
-    }
-
-    private void Start()
-    {
     }
 
     #endregion
@@ -108,6 +107,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void LevelDataInitializer()
+    {
+        // initializing level time management variables
+        levelTimings = new Dictionary<int, string>();
+        totalTimingsForLevels = new Dictionary<int, float>();
+    }
+
+    private void LevelDataPopulators()
+    {
+        levelTimings = SaveGame.Load<Dictionary<int, string>>(LEVELTIMINGDISPLAY);
+        totalTimingsForLevels = SaveGame.Load<Dictionary<int, float>>(LEVELTOTALTIMINGSAVE);
+    }
+
+    private void CheckForUnlockedLevelCount()
+    {
+        bool anyLevelUnlocked = SaveGame.Exists(UNLOCKEDLEVEL);
+
+        if (!anyLevelUnlocked)
+        {
+            unlockedLevels = 1;
+            SaveGame.Save<int>(UNLOCKEDLEVEL, unlockedLevels);
+        }
+    }
+
+
+
     #endregion
 
 
@@ -125,7 +150,14 @@ public class GameManager : MonoBehaviour
         {
             CheckForSelectedCarSave();
             CheckForLevelStatus();
+            CheckForUnlockedLevelCount();
         }
+    }
+
+    private void LevelFinished()
+    {
+        LevelDataInitializer();
+        LevelDataPopulators();
     }
 
     #endregion
@@ -140,6 +172,17 @@ public class GameManager : MonoBehaviour
     {
         return selectedCarIndex;
     }
+
+    public Dictionary<int, string> GetLevelTiming()
+    {
+        return levelTimings;
+    }
+
+    public Dictionary<int, float> GetLevelTotalTiming()
+    {
+        return totalTimingsForLevels;
+    }
+
 
     #endregion
 
@@ -157,15 +200,19 @@ public class GameManager : MonoBehaviour
 
     private void SaveLevelDataForFirstTime()
     {
-        // initializing level time management variables
-        levelTimings = new Dictionary<int, string>();
-        totalTimingsForLevels = new Dictionary<int, float>();
+        // initialize dictionaries
+        LevelDataInitializer();
 
         levelTimings.Add(0, "--");
         totalTimingsForLevels.Add(0, 0f);
 
         SaveGame.Save<Dictionary<int, string>>(LEVELTIMINGDISPLAY, levelTimings);
         SaveGame.Save<Dictionary<int, float>>(LEVELTOTALTIMINGSAVE, totalTimingsForLevels);
+    }
+
+    private void NewLevelUnLocked()
+    {
+
     }
 
     #endregion

@@ -15,7 +15,7 @@ public class GameTimer : MonoBehaviour
     float seconds = 0, minutes = 0;
     bool isTimerRunning = true;
 
-
+    private float totalTime = 0f;
 
     #region Unity Methods
 
@@ -64,6 +64,7 @@ public class GameTimer : MonoBehaviour
     {
         if (isTimerRunning)
         {
+            totalTime += Time.deltaTime;
             startTime += Time.deltaTime;
             seconds = startTime;
         }
@@ -108,5 +109,11 @@ public class GameTimer : MonoBehaviour
     public string GetTimerValue()
     {
         return timerValue;
+    }
+
+    // getter for total time value
+    public float GetTotalTimerValue()
+    {
+        return totalTime;
     }
 }

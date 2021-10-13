@@ -13,7 +13,7 @@ public class LevelSelectionPanel : MonoBehaviour
 
     [Header("Level Details")]
     [SerializeField] private int countOfLevelsToBeGenerated;
-    [SerializeField] private int unlockedLevels;
+    private int unlockedLevels;
 
     [Header("Audio Source For Button")]
     [SerializeField] private AudioSource buttonAudioSource;
@@ -39,10 +39,11 @@ public class LevelSelectionPanel : MonoBehaviour
         levelTiming = SaveGame.Load<Dictionary<int, string>>("LevelTimings");
         totalLevelTimings = SaveGame.Load<Dictionary<int, float>>("LevelTotalTimings");
 
+        unlockedLevels = SaveGame.Load<int>("UnlockedLevelCount");
         // initializing prefab holder list
         InstantiatePrefabs();
 
-        
+        Debug.Log(unlockedLevels);
     }
 
     private void InstantiatePrefabs()
@@ -53,6 +54,7 @@ public class LevelSelectionPanel : MonoBehaviour
         {
             // instantiate and add to the list
             instantiatedLevelPrefabs.Add(Instantiate(prefabToBeInstantiate, instantiationArea) as GameObject);
+            //instantiatedLevelPrefabs[i].GetComponent<Button>().interactable = true;
             // attach audio source and level id to the buttons
             instantiatedLevelPrefabs[i].GetComponent<Assets.Plugins.ButtonSoundsEditor.ButtonClickSound>().AudioSource = buttonAudioSource;
             instantiatedLevelPrefabs[i].GetComponent<LevelButtonIdCarrier>().SetLevelID(i+1);
@@ -92,8 +94,12 @@ public class LevelSelectionPanel : MonoBehaviour
             // incase where the instantiated level is locked
             else
             {
+                // making the button non interactable
+                instantiatedLevelPrefabs[i].GetComponent<Button>().interactable = false;
+
                 // array for storing locked childs
-                GameObject[] prefabChilds = new GameObject[instantiatedLevelPrefabs[i].GetComponentsInChildren<Transform>().Length];
+                GameObject[] prefabChilds = new GameObject[instantiatedLevelPrefabs[i].
+                    GetComponentsInChildren<Transform>().Length];
 
                 // instantiate and assign the array childs
                 for (int y = 0; y < prefabChilds.Length; y++)
@@ -122,7 +128,6 @@ public class LevelSelectionPanel : MonoBehaviour
             }
         }
     }
-
 
 
 
