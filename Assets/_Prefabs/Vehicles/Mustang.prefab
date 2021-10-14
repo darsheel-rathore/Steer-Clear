@@ -83,7 +83,7 @@ MonoBehaviour:
   invertSteering: 0
   motorEnabled: 1
   motorMaxSpeed: 20
-  motorAcceleration: 180
+  motorAcceleration: 200
   motorAccelerationOverSpeed:
     serializedVersion: 2
     m_Curve:
@@ -700,7 +700,7 @@ MonoBehaviour:
   invertSteering: 0
   motorEnabled: 1
   motorMaxSpeed: 20
-  motorAcceleration: 180
+  motorAcceleration: 200
   motorAccelerationOverSpeed:
     serializedVersion: 2
     m_Curve:

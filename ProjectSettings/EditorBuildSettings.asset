@@ -6,21 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Main Menu Scene.unity
+    path: Assets/_Scenes/Completed Scenes/Main Menu Scene.unity
     guid: 0d166d5805bdfb94aadc587ef2256a65
   - enabled: 1
-    path: Assets/_Scenes/Game Scene.unity
-    guid: b2acf1242a59b7c42979a813c14b524d
-  - enabled: 1
-    path: Assets/_Scenes/Game Scene 1.unity
+    path: Assets/_Scenes/Completed Scenes/Game Scene 1.unity
     guid: c6915e3be7c468d45b03b8e51d947a4a
   - enabled: 1
-    path: Assets/_Scenes/Game Scene 2.unity
-    guid: 2034403136724314bad33f2bfd8fc806
+    path: Assets/_Scenes/Completed Scenes/04 - City 1.unity
+    guid: 92c4a7a03be035943863aef2b1e68348
   - enabled: 1
-    path: Assets/_Scenes/Game Scene 3.unity
-    guid: e6d7f5b9884b6e24486d106f18dd6d30
-  - enabled: 1
-    path: Assets/_Scenes/Game Scene 4.unity
-    guid: e6b72a62662fc0d42b5aadf1e79d778e
+    path: Assets/_Scenes/Completed Scenes/Airport map.unity
+    guid: 6f4a8e0b02db341dfbd3b02429834ab7
   m_configObjects: {}
