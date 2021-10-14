@@ -1175,7 +1175,7 @@ GameObject:
   - component: {fileID: 4982171491895337509}
   m_Layer: 0
   m_Name: Jeep
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1244,7 +1244,6 @@ GameObject:
   - component: {fileID: 6197351111742201470}
   - component: {fileID: 6197351111742201471}
   - component: {fileID: 6197351111742201468}
-  - component: {fileID: 5640131454910131060}
   m_Layer: 0
   m_Name: Body
   m_TagString: Player
@@ -1359,18 +1358,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0012817, y: 1.4212143, z: 3.5891109}
   m_Center: {x: -0.025800347, y: 1.1687872, z: 0.002733469}
---- !u!114 &5640131454910131060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6197351111742201465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd99280540df2c4badd02b355d491b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6197351112401733742
 GameObject:
   m_ObjectHideFlags: 0

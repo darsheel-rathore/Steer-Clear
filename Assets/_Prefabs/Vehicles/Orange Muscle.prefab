@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 1059316627991414669}
   m_Layer: 0
   m_Name: Orange Muscle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -817,7 +817,6 @@ GameObject:
   - component: {fileID: 2131929197909392342}
   - component: {fileID: 2131929197909392343}
   - component: {fileID: 2131929197909392340}
-  - component: {fileID: 419553725221490396}
   m_Layer: 0
   m_Name: Body
   m_TagString: Player
@@ -925,18 +924,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.73977, y: 0.96567774, z: 3.7915714}
   m_Center: {x: -0.0047106147, y: 0.78073776, z: -0.098496795}
---- !u!114 &419553725221490396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2131929197909392337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd99280540df2c4badd02b355d491b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2131929198040444358
 GameObject:
   m_ObjectHideFlags: 0

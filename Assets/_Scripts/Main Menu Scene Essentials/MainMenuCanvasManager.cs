@@ -16,6 +16,9 @@ public class MainMenuCanvasManager : MonoBehaviour
 
     [SerializeField] private GameObject loadingPanel;
 
+    public delegate void OnPlayButtonPressed();
+    public static OnPlayButtonPressed playButtonPressed;
+
     private void OnEnable()
     {
         CarShowCaseButtons.leftButtonReleased += CheckForCarShowcaseChange;
@@ -92,6 +95,9 @@ public class MainMenuCanvasManager : MonoBehaviour
 
     public void _PlayButtonPressed()
     {
+        if (playButtonPressed != null)
+            playButtonPressed();
+
         loadingPanel.SetActive(true);
         SceneManagement.instance.MainMenuPlayButton();
     }

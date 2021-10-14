@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
     private Dictionary<int, string> levelTimings;
     private Dictionary<int, float> totalTimingsForLevels;
 
+    // for all car
+    [Header("Car Prefabs")]
+    [SerializeField] private GameObject[] carPrefabs;
+
     #endregion
 
 
@@ -71,6 +75,10 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    private void Update()
+    {
+
+    }
     #endregion
 
 
@@ -151,6 +159,12 @@ public class GameManager : MonoBehaviour
             CheckForSelectedCarSave();
             CheckForLevelStatus();
             CheckForUnlockedLevelCount();
+        }
+        // loading into another scene
+        else
+        {
+            int selectedCar = selectedCarIndex;
+            SpawnAndPositionManager.instnace.SetCar(carPrefabs[SaveGame.Load<int>(SELECTEDCAR)]);
         }
     }
 

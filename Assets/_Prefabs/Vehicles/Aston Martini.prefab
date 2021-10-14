@@ -231,7 +231,6 @@ GameObject:
   - component: {fileID: 754290459903262118}
   - component: {fileID: 754290459903262119}
   - component: {fileID: 754290459903262116}
-  - component: {fileID: 1311506823988578476}
   m_Layer: 0
   m_Name: Body
   m_TagString: Player
@@ -342,18 +341,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.73977, y: 0.8419895, z: 3.619782}
   m_Center: {x: -0.0047106147, y: 0.75325143, z: 0.16605878}
---- !u!114 &1311506823988578476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754290459903262113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd99280540df2c4badd02b355d491b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &754290459997713807
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +464,7 @@ GameObject:
   - component: {fileID: 1824687642617577981}
   m_Layer: 0
   m_Name: Aston Martini
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

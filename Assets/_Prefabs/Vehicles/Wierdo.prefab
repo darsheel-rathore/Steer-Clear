@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 2362191125085763739}
   m_Layer: 0
   m_Name: Wierdo
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -643,7 +643,6 @@ GameObject:
   - component: {fileID: 3741753256551564480}
   - component: {fileID: 3741753256551564481}
   - component: {fileID: 3741753256551564482}
-  - component: {fileID: 3146273893132677578}
   m_Layer: 0
   m_Name: Body
   m_TagString: Player
@@ -751,18 +750,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.73977, y: 0.8419895, z: 3.619782}
   m_Center: {x: -0.0047106147, y: 0.75325143, z: 0.16605878}
---- !u!114 &3146273893132677578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3741753256551564487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd99280540df2c4badd02b355d491b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3741753256674398928
 GameObject:
   m_ObjectHideFlags: 0
