@@ -878,7 +878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelRadius: 0.45
   wheelMass: 1
-  wheelMaterial: {fileID: 13400000, guid: 5a0135d8bfc76f9448551a1cd3562019, type: 2}
+  wheelMaterial: {fileID: 13400000, guid: 26383e988568466408c308a13ddab4eb, type: 2}
   rigidbodyInterpolation: 1
   collisionDetectionMode: 2
   suspensionSpring: 2000
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelRadius: 0.45
   wheelMass: 1
-  wheelMaterial: {fileID: 13400000, guid: 5a0135d8bfc76f9448551a1cd3562019, type: 2}
+  wheelMaterial: {fileID: 13400000, guid: 26383e988568466408c308a13ddab4eb, type: 2}
   rigidbodyInterpolation: 1
   collisionDetectionMode: 2
   suspensionSpring: 2000
@@ -1024,8 +1024,8 @@ MonoBehaviour:
   steeringDamper: 20
   invertSteering: 0
   motorEnabled: 1
-  motorMaxSpeed: 15
-  motorAcceleration: 120
+  motorMaxSpeed: 24
+  motorAcceleration: 150
   motorAccelerationOverSpeed:
     serializedVersion: 2
     m_Curve:
@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelRadius: 0.45
   wheelMass: 1
-  wheelMaterial: {fileID: 13400000, guid: 5a0135d8bfc76f9448551a1cd3562019, type: 2}
+  wheelMaterial: {fileID: 13400000, guid: 26383e988568466408c308a13ddab4eb, type: 2}
   rigidbodyInterpolation: 1
   collisionDetectionMode: 2
   suspensionSpring: 2000
@@ -1404,7 +1404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelRadius: 0.45
   wheelMass: 1
-  wheelMaterial: {fileID: 13400000, guid: 5a0135d8bfc76f9448551a1cd3562019, type: 2}
+  wheelMaterial: {fileID: 13400000, guid: 26383e988568466408c308a13ddab4eb, type: 2}
   rigidbodyInterpolation: 1
   collisionDetectionMode: 2
   suspensionSpring: 2000

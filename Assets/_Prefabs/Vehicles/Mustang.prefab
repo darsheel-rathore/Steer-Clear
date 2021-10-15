@@ -81,9 +81,9 @@ MonoBehaviour:
   steeringSpring: 1000
   steeringDamper: 20
   invertSteering: 0
-  motorEnabled: 1
-  motorMaxSpeed: 20
-  motorAcceleration: 200
+  motorEnabled: 0
+  motorMaxSpeed: 0
+  motorAcceleration: 0
   motorAccelerationOverSpeed:
     serializedVersion: 2
     m_Curve:
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelRadius: 0.35
   wheelMass: 1
-  wheelMaterial: {fileID: 13400000, guid: 5a0135d8bfc76f9448551a1cd3562019, type: 2}
+  wheelMaterial: {fileID: 13400000, guid: 678f620d539c03d4db3244eca12718fa, type: 2}
   rigidbodyInterpolation: 1
   collisionDetectionMode: 2
   suspensionSpring: 2000
@@ -191,9 +191,9 @@ MonoBehaviour:
   steeringSpring: 10000
   steeringDamper: 1000
   invertSteering: 0
-  motorEnabled: 0
-  motorMaxSpeed: 0
-  motorAcceleration: 0
+  motorEnabled: 1
+  motorMaxSpeed: 28
+  motorAcceleration: 300
   motorAccelerationOverSpeed:
     serializedVersion: 2
     m_Curve:
@@ -218,7 +218,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  motorDrag: 0
+  motorDrag: 20
   handbrakeEnabled: 1
 --- !u!1 &1748715712087578042
 GameObject:
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelRadius: 0.35
   wheelMass: 1
-  wheelMaterial: {fileID: 13400000, guid: 5a0135d8bfc76f9448551a1cd3562019, type: 2}
+  wheelMaterial: {fileID: 13400000, guid: 678f620d539c03d4db3244eca12718fa, type: 2}
   rigidbodyInterpolation: 1
   collisionDetectionMode: 2
   suspensionSpring: 2000
@@ -490,9 +490,9 @@ MonoBehaviour:
   steeringSpring: 10000
   steeringDamper: 1000
   invertSteering: 0
-  motorEnabled: 0
-  motorMaxSpeed: 0
-  motorAcceleration: 0
+  motorEnabled: 1
+  motorMaxSpeed: 28
+  motorAcceleration: 300
   motorAccelerationOverSpeed:
     serializedVersion: 2
     m_Curve:
@@ -517,7 +517,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  motorDrag: 0
+  motorDrag: 20
   handbrakeEnabled: 1
 --- !u!1 &1748715712431636090
 GameObject:
@@ -685,9 +685,9 @@ MonoBehaviour:
   steeringSpring: 1000
   steeringDamper: 20
   invertSteering: 0
-  motorEnabled: 1
-  motorMaxSpeed: 20
-  motorAcceleration: 200
+  motorEnabled: 0
+  motorMaxSpeed: 0
+  motorAcceleration: 0
   motorAccelerationOverSpeed:
     serializedVersion: 2
     m_Curve:
