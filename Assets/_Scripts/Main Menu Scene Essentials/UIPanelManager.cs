@@ -35,6 +35,7 @@ public class UIPanelManager : MonoBehaviour
     public void _OnExitButtonClicked()
     {
         Application.Quit();
+        //System.Diagnostics.Process.GetCurrentProcess().Kill();
     }
 
     public void _OnExitButtonCancelClicked()

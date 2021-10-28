@@ -41,9 +41,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 316224186e8ae6543990a05f4dc13981, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2b9be05b0a886f147b9ac9a64d6a22fe, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.15
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -604,8 +604,8 @@ MonoBehaviour:
   steeringDamper: 1000
   invertSteering: 0
   motorEnabled: 1
-  motorMaxSpeed: 24
-  motorAcceleration: 200
+  motorMaxSpeed: 30
+  motorAcceleration: 300
   motorAccelerationOverSpeed:
     serializedVersion: 2
     m_Curve:
@@ -831,9 +831,9 @@ MonoBehaviour:
   steeringSpring: 1000
   steeringDamper: 20
   invertSteering: 0
-  motorEnabled: 0
-  motorMaxSpeed: 0
-  motorAcceleration: 0
+  motorEnabled: 1
+  motorMaxSpeed: 30
+  motorAcceleration: 300
   motorAccelerationOverSpeed:
     serializedVersion: 2
     m_Curve:
@@ -1027,8 +1027,8 @@ MonoBehaviour:
   steeringDamper: 1000
   invertSteering: 0
   motorEnabled: 1
-  motorMaxSpeed: 22
-  motorAcceleration: 180
+  motorMaxSpeed: 30
+  motorAcceleration: 300
   motorAccelerationOverSpeed:
     serializedVersion: 2
     m_Curve:
@@ -1136,9 +1136,9 @@ MonoBehaviour:
   steeringSpring: 1000
   steeringDamper: 20
   invertSteering: 0
-  motorEnabled: 0
-  motorMaxSpeed: 0
-  motorAcceleration: 0
+  motorEnabled: 1
+  motorMaxSpeed: 30
+  motorAcceleration: 300
   motorAccelerationOverSpeed:
     serializedVersion: 2
     m_Curve:

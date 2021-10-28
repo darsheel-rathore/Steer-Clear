@@ -33,7 +33,14 @@ public class MainMenuCanvasManager : MonoBehaviour
         GameManager.loadCarPositionSaveData -= LoadSelectedSaveCarData;
     }
 
+    private void Awake()
+    {
+        if (btnAudioSource == null)
+            btnAudioSource = BtnAudioSource.instance.GetComponent<AudioSource>();
 
+        if (bgmAudioSource == null)
+            bgmAudioSource = GameMusicManager.instance.GetComponent<AudioSource>();
+    }
     private void Start()
     {
         CheckForCarShowcaseChange();
@@ -56,6 +63,7 @@ public class MainMenuCanvasManager : MonoBehaviour
     // for background music
     public void _OnBGMSoundToggle()
     {
+        bgmAudioSource = BtnAudioSource.instance.GetComponent<AudioSource>();
         // getting volume of the audio source 
         float volume = bgmAudioSource.volume;
         
@@ -81,7 +89,8 @@ public class MainMenuCanvasManager : MonoBehaviour
     // quit game
     public void _OnConfirmGameQuit()
     {
-        Application.Quit();
+        //Application.Quit();
+        //System.Diagnostics.Process.GetCurrentProcess().Kill();
     }
 
 
@@ -89,7 +98,6 @@ public class MainMenuCanvasManager : MonoBehaviour
     public void _OnConfirmRewardAd()
     {
         // add logic
-        Debug.Log("Add logic");
     }
 
 

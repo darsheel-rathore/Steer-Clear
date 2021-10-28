@@ -43,7 +43,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 316224186e8ae6543990a05f4dc13981, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.15
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 7314942878026353998}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 8100259023945226467}
   m_Layer: 0
   m_Name: Sedan
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
