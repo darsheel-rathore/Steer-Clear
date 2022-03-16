@@ -871,6 +871,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -8919,9 +8920,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1709014420}
-        m_TargetAssemblyTypeName: UIPanelManager, Assembly-CSharp
-        m_MethodName: _OnGameQuitButtonClicked
+      - m_Target: {fileID: 1709014419}
+        m_TargetAssemblyTypeName: MainMenuCanvasManager, Assembly-CSharp
+        m_MethodName: _OnConfirmGameQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -89,7 +89,7 @@ public class MainMenuCanvasManager : MonoBehaviour
     // quit game
     public void _OnConfirmGameQuit()
     {
-        //Application.Quit();
+        Application.Quit();
         //System.Diagnostics.Process.GetCurrentProcess().Kill();
     }
 

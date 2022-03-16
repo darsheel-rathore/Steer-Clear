@@ -32,12 +32,6 @@ public class UIPanelManager : MonoBehaviour
         gameQuitPanel.SetActive(true);
     }
 
-    public void _OnExitButtonClicked()
-    {
-        Application.Quit();
-        //System.Diagnostics.Process.GetCurrentProcess().Kill();
-    }
-
     public void _OnExitButtonCancelClicked()
     {
         gameQuitPanel.SetActive(false);
