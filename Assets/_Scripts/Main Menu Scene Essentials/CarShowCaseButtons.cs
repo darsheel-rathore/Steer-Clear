@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class CarShowCaseButtons : MonoBehaviour, IPointerUpHandler
+public class CarShowCaseButtons : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     
     public enum SelectionDirection {  Left, Right };
@@ -30,5 +30,10 @@ public class CarShowCaseButtons : MonoBehaviour, IPointerUpHandler
                     rightButtonReleased();
                 break;
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Vibration.Vibrate(100);
     }
 }
